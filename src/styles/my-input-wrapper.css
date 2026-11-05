@@ -20,7 +20,7 @@
 .my-input-wrapper__label {
 	font-size: inherit;
 	font-family: inherit;
-	font-weight: 600;
+	font-weight: 500;
 	color: var(--my-color-dark-lighter);
 	width: fit-content;
 }
