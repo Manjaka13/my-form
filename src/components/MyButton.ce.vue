@@ -1,5 +1,11 @@
 <template>
-	<button :type="type" :class="computedClasses" :disabled="disabled" @click="handleClick">
+	<button
+		:type="type"
+		:class="computedClasses"
+		:disabled="disabled"
+		:title="myTitle"
+		@click="handleClick"
+	>
 		<slot></slot>
 	</button>
 </template>
@@ -20,13 +26,16 @@ interface IProps {
 	disabled?: boolean;
 	type?: ButtonType;
 	small?: boolean;
+	fill?: boolean;
+	myTitle?: string;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
 	color: "theme",
 	disabled: false,
 	type: BUTTON_TYPES[0],
-	small: false
+	small: false,
+	fill: false,
 });
 
 const emit = defineEmits<{
@@ -39,14 +48,14 @@ const computedClasses = computed(() => [
 	{
 		"my-button--disabled": !!props.disabled,
 		"my-button--small": !!props.small,
-	}
+		"my-button--fill": !!props.fill,
+	},
 ]);
 
 const internalName = ref(generateName("my-button", props.name));
 
 function handleClick() {
-  if (!props.disabled)
-    emit("my-click", internalName.value);
+	if (!props.disabled) emit("my-click", internalName.value);
 }
 </script>
 

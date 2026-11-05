@@ -17,6 +17,13 @@
   }
 }
 
+.my-button--fill {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .my-button--small {
   height: var(--my-form-height-small);
   padding: 0 10px;
