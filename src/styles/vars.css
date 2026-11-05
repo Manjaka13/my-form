@@ -1,0 +1,47 @@
+:root {
+  /*
+    Each color have basic value + lighter and darker version
+    You can add more colors but add them also in const.ts
+  */
+  --my-color-info: #3498db;
+  --my-color-info-lighter: color-mix(in srgb, var(--my-color-info) 75%, white);
+  --my-color-info-darker: color-mix(in srgb, var(--my-color-info) 80%, black);
+  --my-color-success: #27b23c;
+  --my-color-success-lighter: color-mix(in srgb, var(--my-color-success) 75%, white);
+  --my-color-success-darker: color-mix(in srgb, var(--my-color-success) 80%, black);
+  --my-color-danger: #e74c3c;
+  --my-color-danger-lighter: color-mix(in srgb, var(--my-color-danger) 75%, white);
+  --my-color-danger-darker: color-mix(in srgb, var(--my-color-danger) 80%, black);
+  --my-color-warning: rgb(241, 205, 0);
+  --my-color-warning-lighter: color-mix(in srgb, var(--my-color-warning) 75%, white);
+  --my-color-warning-darker: color-mix(in srgb, var(--my-color-warning) 80%, black);
+  --my-color-light: white;
+  --my-color-light-lighter: var(--my-color-light);
+  --my-color-light-darker: color-mix(in srgb, var(--my-color-light) 80%, black);
+  --my-color-dark: #303841;
+  --my-color-dark-lighter: color-mix(in srgb, var(--my-color-dark) 75%, white);
+  --my-color-dark-darker: var(--my-color-dark);
+  --my-color-theme: #d30989;
+  --my-color-theme-lighter: color-mix(in srgb, var(--my-color-theme) 75%, white);
+  --my-color-theme-darker: color-mix(in srgb, var(--my-color-theme) 80%, black);
+
+  /* Box shadows for inputs, buttons... */
+  --my-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  --my-box-shadow-invert: 0 0 5px rgba(255, 255, 255, 0.6);
+
+  /* General transition */
+  --my-transition: all 200ms ease-in-out;
+
+  /* Height of inputs, buttons, switches... */
+  --my-form-height: 42px;
+  --my-form-height-small: calc(var(--my-form-height) * 0.5);
+  
+  /* General border radius */
+  --my-border-radius: 5px;
+
+  /* Padding for inputs, buttons, switches... */
+  --my-form-padding: 0 20px;
+
+  /* Controls how far down from the input the error will be displayed */
+  --my-error-margin: 3px;
+}

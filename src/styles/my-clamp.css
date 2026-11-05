@@ -1,0 +1,42 @@
+.my-clamp {
+	width: 100%;
+}
+
+.my-clamp__content {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	line-clamp: var(--my-clamp-lines, 3);
+	-webkit-line-clamp: var(--my-clamp-lines, 3);
+	overflow: hidden;
+	overflow-wrap: anywhere;
+	padding: 0;
+	margin: 0;
+	font-size: inherit;
+	font-family: inherit;
+  color: var(--my-color-dark);
+}
+
+.my-clamp--justify .my-clamp__content {
+    text-align: justify;
+}
+
+.my-clamp__content.is-expanded {
+	display: block;
+	line-clamp: unset;
+	-webkit-line-clamp: unset;
+	overflow: visible;
+}
+
+.my-clamp__toggle {
+	display: inline-block;
+	margin-top: 5px;
+	padding: 0;
+	border: none;
+	background: none;
+	color: var(--my-color-info);
+	font-weight: 600;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}

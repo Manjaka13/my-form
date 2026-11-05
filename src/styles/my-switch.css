@@ -1,0 +1,158 @@
+.my-switch {
+  --my-spinner-padding: 4px;
+  width: calc((var(--my-form-height) * 2) - (var(--my-spinner-padding) * 2));
+  height: var(--my-form-height);
+  border-radius: calc(var(--my-form-height) / 2);
+  background: color-mix(in srgb, var(--my-color-light) 90%, black);
+  position: relative;
+  cursor: pointer;
+  transition: var(--my-transition);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: normal;
+  user-select: none;
+
+  &:hover {
+    box-shadow: var(--my-box-shadow);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.my-switch--disabled {
+  pointer-events: none;
+}
+
+.my-switch--small {
+  --my-spinner-padding: 2px;
+  width: calc((var(--my-form-height-small) * 2) - (var(--my-spinner-padding) * 2));
+  height: var(--my-form-height-small);
+  border-radius: calc(var(--my-form-height-small) / 2);
+}
+
+.my-switch__text {
+  color: var(--my-color-light-darker);
+  padding: 0 var(--my-spinner-padding);
+}
+
+.my-switch--small .my-switch__text{
+  display: none;
+}
+
+.my-switch--checked .my-switch__text {
+  color: var(--my-color-light);
+}
+
+.my-switch--light {
+  background: var(--my-color-light);
+}
+
+.my-switch--light.my-switch--disabled {
+  background: color-mix(in srgb, var(--my-color-light) 90%, black);
+}
+
+.my-switch__inner {
+  width: calc(var(--my-form-height) - var(--my-spinner-padding) * 2);
+  height: calc(var(--my-form-height) - var(--my-spinner-padding) * 2);
+  border-radius: calc(var(--my-form-height) / 2);
+  transition: var(--my-transition);
+  background: var(--my-color-info);
+  position: absolute;
+  top: var(--my-spinner-padding);
+  left: var(--my-spinner-padding);
+  z-index: 1;
+}
+
+.my-switch--small .my-switch__inner {
+  width: calc(var(--my-form-height-small) - var(--my-spinner-padding) * 2);
+  height: calc(var(--my-form-height-small) - var(--my-spinner-padding) * 2);
+  border-radius: calc(var(--my-form-height-small) / 2);
+}
+
+/* Inner switch when unchecked depending on color */
+
+.my-switch--info .my-switch__inner {
+  background: var(--my-color-info-lighter);
+}
+
+.my-switch--success .my-switch__inner {
+  background: var(--my-color-success-lighter);
+}
+
+.my-switch--danger .my-switch__inner {
+  background: var(--my-color-danger-lighter);
+}
+
+.my-switch--warning .my-switch__inner {
+  background: var(--my-color-warning-lighter);
+}
+
+.my-switch--light .my-switch__inner {
+  background: var(--my-color-light-darker);
+}
+
+.my-switch--dark .my-switch__inner {
+  background: var(--my-color-dark-lighter);
+}
+
+.my-switch--theme .my-switch__inner {
+  background: var(--my-color-theme-lighter);
+}
+
+.my-switch--disabled .my-switch__inner {
+  background: var(--my-color-light-darker);
+}
+
+/* Inner switch when checked */
+
+.my-switch--checked .my-switch__inner {
+  left: calc(var(--my-form-height) - var(--my-spinner-padding));
+  background: var(--my-color-light);
+}
+
+.my-switch--small.my-switch--checked .my-switch__inner {
+  left: calc(var(--my-form-height-small) - var(--my-spinner-padding));
+}
+
+.my-switch--checked.my-switch--disabled .my-switch__inner {
+  background: var(--my-color-light);
+}
+
+/* Switch when checked depending on color */
+
+.my-switch--checked.my-switch--info {
+  background: var(--my-color-info);
+}
+
+.my-switch--checked.my-switch--success {
+  background: var(--my-color-success);
+}
+
+.my-switch--checked.my-switch--danger {
+  background: var(--my-color-danger);
+}
+
+.my-switch--checked.my-switch--warning {
+  background: var(--my-color-warning);
+}
+
+.my-switch--checked.my-switch--light {
+  background: var(--my-color-dark-lighter);
+}
+
+.my-switch--checked.my-switch--dark {
+  background: var(--my-color-dark);
+}
+
+.my-switch--checked.my-switch--theme {
+  background: var(--my-color-theme);
+}
+
+.my-switch--checked.my-switch--disabled {
+  background: var(--my-color-light-darker);
+}

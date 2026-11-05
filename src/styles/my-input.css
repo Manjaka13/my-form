@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.my-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  background: color-mix(in srgb, var(--my-color-light) 99%, black);
+  border-radius: var(--my-border-radius);
+  padding: 0 20px;
+  font-size: inherit;
+  font-family: inherit;
+  box-sizing: border-box;
+  font-weight: inherit;
+}
+
+.my-input--with-icon {
+  border-radius: 0 var(--my-border-radius) var(--my-border-radius) 0;
+}
+

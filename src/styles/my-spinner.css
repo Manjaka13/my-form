@@ -1,0 +1,63 @@
+.my-spinner {
+  --my-spinner-border: 5px;
+  width: var(--my-form-height);
+  height: var(--my-form-height);
+  border: var(--my-spinner-border) solid var(--my-color-info);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.my-spinner--small {
+  width: var(--my-form-height-small);
+  height: var(--my-form-height-small);
+  border-width: calc(var(--my-spinner-border) * 0.75);
+  position: relative;
+  top: 2px;
+}
+
+.my-spinner--info {
+  border-color: var(--my-color-info);
+  border-bottom-color: transparent;
+}
+
+.my-spinner--success {
+  border-color: var(--my-color-success);
+  border-bottom-color: transparent;
+}
+
+.my-spinner--danger {
+  border-color: var(--my-color-danger);
+  border-bottom-color: transparent;
+}
+
+.my-spinner--warning {
+  border-color: var(--my-color-warning);
+  border-bottom-color: transparent;
+}
+
+.my-spinner--dark {
+  border-color: var(--my-color-dark);
+  border-bottom-color: transparent;
+}
+
+.my-spinner--light {
+  border-color: var(--my-color-light);
+  border-bottom-color: transparent;
+}
+
+.my-spinner--theme {
+  border-color: var(--my-color-theme);
+  border-bottom-color: transparent;
+}
