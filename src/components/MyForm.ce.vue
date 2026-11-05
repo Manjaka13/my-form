@@ -1,6 +1,6 @@
 <template>
 	<form class="my-form" @submit="handleSubmit">
-		<my-group :title="title" :small="small">
+		<my-group :myTitle="myTitle" :small="small">
 			<slot></slot>
 		</my-group>
 	</form>
@@ -12,7 +12,7 @@ import { generateName } from "@/helpers/utils";
 
 interface IProps {
 	name?: string;
-	title?: string;
+	myTitle?: string;
 	small?: boolean;
 }
 

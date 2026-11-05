@@ -1,6 +1,6 @@
 <template>
-  <div v-if="title" :class="computedClasses">
-    <p class="my-group__title">{{ title }}</p>
+  <div v-if="myTitle" :class="computedClasses">
+    <p class="my-group__title">{{ myTitle }}</p>
     <slot></slot>
   </div>
   <slot v-else></slot>
@@ -10,7 +10,7 @@
 import { computed } from 'vue';
 
 interface IProps {
-  title?: string;
+  myTitle?: string;
   small?: boolean;
 }
 

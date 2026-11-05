@@ -1,5 +1,5 @@
 <template>
-	<div ref="rootEl" :class="computedClasses" :title="title">
+	<div ref="rootEl" :class="computedClasses" :title="myTitle">
 		<label v-if="label" class="my-input-wrapper__label" :for="name">
 			{{ label }}
 		</label>
@@ -27,7 +27,7 @@ interface IProps {
 	noDot?: boolean;
 	breakpoint?: string | number;
 	width?: string | number;
-	title?: string;
+	myTitle?: string;
 	layout?: InputLayoutType;
 	small?: boolean;
 }
