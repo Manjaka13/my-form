@@ -25,11 +25,13 @@
   border-radius: var(--my-border-radius);
   font-size: inherit;
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .my-group--small .my-group__title {
   font-size: var(--my-font-size-small);
+  font-family: inherit;
+  color: var(--my-color-dark-lighter);
   top: -20px;
   left: 10px;
 }
