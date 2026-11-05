@@ -1,0 +1,35 @@
+.my-group {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px var(--my-color-light-darker) solid;
+  border-radius: var(--my-border-radius);
+  position: relative;
+}
+
+.my-group--small {
+  padding: 10px;
+  padding-top: 20px;
+  gap: 10px;
+}
+
+.my-group__title {
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  z-index: 1;
+  padding: 0 10px;
+  background: var(--my-color-light);
+  border: 1px var(--my-color-light-darker) solid;
+  border-radius: var(--my-border-radius);
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.my-group--small .my-group__title {
+  font-size: var(--my-font-size-small);
+  top: -20px;
+  left: 10px;
+}

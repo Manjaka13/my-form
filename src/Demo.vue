@@ -1,5 +1,5 @@
 <template>
-	<my-form>
+	<my-form title="Informations">
 		<my-input-wrapper name="input1" label="Remplir le champ" breakpoint="500" title="Entrer une adresse email standard">
 			<my-input
 				name="input1"
@@ -19,9 +19,30 @@
 		<my-input-wrapper name="input2" label="Activer le compte" breakpoint="500" title="Si vous souhaitez activer le compte directement" layout="inline">
 			<my-switch name="input2" :value="valueBool" @my-change="handleBoolChange" />
 		</my-input-wrapper>
-
-		<my-button small>Click me</my-button>
 	</my-form>
+
+	<my-group title="Mon groupe" small>
+		<my-input-wrapper name="input3" label="Remplir le champ" breakpoint="500" title="Entrer une adresse email standard" small>
+			<my-input
+				name="input3"
+				label="Entrer une valeur"
+				type="email"
+				:error="error"
+				:value="valueText"
+				@my-input="handleInput"
+				@my-change="handleChange"
+				@my-error="handleError"
+				@my-focus="handleFocus(true)"
+				@my-blur="handleFocus(false)"
+				required
+				small
+			/>
+		</my-input-wrapper>
+
+		<my-input-wrapper name="input4" label="Activer le compte" breakpoint="500" title="Si vous souhaitez activer le compte directement" layout="inline" small>
+			<my-switch name="input4" :value="valueBool" @my-change="handleBoolChange" small />
+		</my-input-wrapper>
+	</my-group>
 </template>
 
 <script setup lang="ts">
@@ -69,8 +90,8 @@ body {
 	font-size: 15px;
 	font-family: system-ui, sans-serif;
 	box-sizing: border-box;
-	padding: 20px;
-	outline: 1px var(--my-color-light-darker) solid;
+	/* padding: 20px; */
+	/* outline: 1px var(--my-color-light-darker) solid; */
 	width: 100%;
 	margin: 0;
 	padding: 0;

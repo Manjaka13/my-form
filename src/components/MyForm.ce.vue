@@ -1,6 +1,8 @@
 <template>
 	<form class="my-form" @submit="handleSubmit">
-		<slot></slot>
+		<my-group :title="title" :small="small">
+			<slot></slot>
+		</my-group>
 	</form>
 </template>
 
@@ -10,6 +12,8 @@ import { generateName } from "@/helpers/utils";
 
 interface IProps {
 	name?: string;
+	title?: string;
+	small?: boolean;
 }
 
 const props = defineProps<IProps>();
