@@ -24,6 +24,7 @@
   height: var(--my-form-height-small);
   border-width: calc(var(--my-spinner-border) * 0.75);
   position: relative;
+  top: 1px;
 }
 
 .my-spinner--info {
