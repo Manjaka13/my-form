@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  flex: 1;
+  min-width: 0;
+}
+
+.my-select {
+  width: 100%;
+  height: var(--my-form-height);
+}
+
+.my-select__field {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--my-border-radius);
+  padding: 0 20px;
+  border: 1px var(--my-color-light-darker) solid;
+	background: color-mix(in srgb, var(--my-color-light) 99%, black);
+  font-size: inherit;
+  font-family: inherit;
+  box-sizing: border-box;
+  font-weight: inherit;
+  color: var(--my-color-dark-lighter);
+}
+
+.my-select--disabled option {
+	background: color-mix(in srgb, var(--my-color-light) 95%, black);
+  color: var(--my-color-light-darker);
+}
+
+.my-select--small {
+  height: var(--my-form-height-small);
+  padding: 0 10px;
+  font-size: var(--my-font-size-small);
+}
+
+.my-select option:disabled {
+  background: color-mix(in srgb, var(--my-color-light) 92%, black);
+}

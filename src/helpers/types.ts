@@ -36,3 +36,10 @@ export type InputType =
 	| "button";
 
 export type InputLayoutType = (typeof LAYOUTS)[number];
+
+export interface SelectElement {
+	label: string;
+	value: string | number;
+	hide?: boolean;
+	disabled?: boolean;
+}

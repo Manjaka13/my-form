@@ -8,6 +8,7 @@ import MyGroup from "@/components/MyGroup.ce.vue";
 import MyForm from "@/components/MyForm.ce.vue";
 import MyInputWrapper from "@/components/MyInputWrapper.ce.vue";
 import MyInput from "@/components/MyInput.ce.vue";
+import MySelect from "@/components/MySelect.ce.vue";
 
 /**
  * Register as web components
@@ -21,3 +22,4 @@ customElements.define("my-group", defineCustomElement(MyGroup));
 customElements.define("my-form", defineCustomElement(MyForm));
 customElements.define("my-input-wrapper", defineCustomElement(MyInputWrapper));
 customElements.define("my-input", defineCustomElement(MyInput));
+customElements.define("my-select", defineCustomElement(MySelect));

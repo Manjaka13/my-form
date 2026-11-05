@@ -22,15 +22,33 @@
 		<my-button color="info" title="Ceci est un titre" fill>
 			<my-spinner color="light" small /> Submit
 		</my-button>
+
+		<my-select
+			name="select1"
+			:value="valueSelect"
+			:elements="elements"
+			placeholder="Sélectionner une option"
+			:error="selectError"
+			@my-change="handleSelectChange"
+		/>
 	</my-form>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 
+const error = ref("");
+const selectError = ref("");
 const valueText = ref("");
 const valueBool = ref(false);
-const error = ref("");
+const valueSelect = ref("");
+const elements = [
+	{ label: "France", value: "FR" },
+	{ label: "Madagascar", value: "MG", disabled: true },
+	{ label: "United States of America", value: "USA" },
+	{ label: "Japan", value: "JP" },
+	{ label: "Mauritius", value: "MR" },
+];
 
 // function checkError() {
 // 	if (!valueText.value) error.value = "Veuillez remplir ce champ";
@@ -62,6 +80,11 @@ function handleError(event: CustomEvent) {
 function handleBoolChange(event: CustomEvent) {
 	const newValue = event.detail[1];
 	valueBool.value = newValue;
+}
+
+function handleSelectChange(event: CustomEvent) {
+	const newValue = event.detail[1];
+	valueSelect.value = newValue;
 }
 </script>
 
