@@ -1,10 +1,10 @@
 <template>
-	<my-form my-my-title="Informations">
+	<my-form my-title="Informations">
 		<my-input-wrapper name="input1" label="Remplir le champ" breakpoint="500" my-title="Entrer une adresse email standard">
 			<my-input
 				name="input1"
 				label="Entrer une valeur"
-				type="email"
+				type="password"
 				:error="error"
 				:value="valueText"
 				@my-input="handleInput"

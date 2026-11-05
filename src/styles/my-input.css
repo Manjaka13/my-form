@@ -58,3 +58,23 @@
 .my-input--small .my-input__error .warning {
   top: 0
 }
+
+.my-input .eye {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  color: var(--my-color-light-darker);
+  transition: var(--my-transition);
+  font-size: 25px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--my-color-dark-lighter);
+  }
+}
+
+.my-input--small .eye {
+  font-size: 20px;
+}

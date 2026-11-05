@@ -1,7 +1,9 @@
 <template>
 	<div :class="computedClasses">
+		<!-- Input field -->
 		<input
 			class="my-input__field"
+			:type="currentType"
 			:id="internalName"
 			:placeholder="placeholder"
 			:value="internalValue"
@@ -12,6 +14,51 @@
 			@focus="(e) => handleFocus(e, true)"
 			@blur="(e) => handleFocus(e, false)"
 		/>
+
+		<template v-if="props.type === 'password'">
+			<!-- Icon show password -->
+			<svg
+				v-if="showPassword"
+				class="eye"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				width="1em"
+				height="1em"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+				@click="toggleVisibility"
+			>
+				<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+				<circle cx="12" cy="12" r="3" />
+				<path d="M3 3l18 18" />
+			</svg>
+
+			<!-- Icon hide password -->
+			<svg
+				v-else
+				class="eye"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				width="1em"
+				height="1em"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+				@click="toggleVisibility"
+			>
+				<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+				<circle cx="12" cy="12" r="3" />
+			</svg>
+		</template>
+
+		<!-- Shows any error -->
 		<p v-if="error" class="my-input__error">
 			<svg
 				class="warning"
@@ -61,7 +108,7 @@ const props = withDefaults(defineProps<IProps>(), {
 	placeholder: "Enter a value",
 	type: "text",
 	strongPassword: true,
-	small: false
+	small: false,
 });
 
 const emit = defineEmits<{
@@ -76,12 +123,14 @@ const computedClasses = computed(() => [
 	"my-input",
 	{
 		"my-input--has-error": !!props.error,
-		"my-input--small": !!props.small
-	}
+		"my-input--small": !!props.small,
+	},
 ]);
 const internalValue = computed(() => props.value ?? "");
+const currentType = computed(() => props.type !== "password" ? props.type : showPassword.value ? "text" : "password");
 
 const internalName = ref(generateName("my-input", props.name));
+const showPassword = ref(false);
 
 function handleInput(event: Event) {
 	const target = event.target as HTMLInputElement;
@@ -117,6 +166,10 @@ function checkInternalError(value: string | number | undefined | null): ErrorTyp
 	else if (props.type === "tel") return valid["phone"](value);
 	else if (props.type === "url") return valid["url"](value);
 	else if (props.type === "date") return valid["date"](value);
+}
+
+function toggleVisibility() {
+	showPassword.value = !showPassword.value;
 }
 </script>
 
