@@ -25,6 +25,10 @@
 	width: fit-content;
 }
 
+.my-input-wrapper--small .my-input-wrapper__label {
+	font-size: var(--my-font-size-small)
+}
+
 .my-input-wrapper__dots {
 	opacity: 0;
 	flex: 1;

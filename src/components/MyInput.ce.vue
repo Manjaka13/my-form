@@ -54,12 +54,14 @@ interface IProps {
 	strongPassword?: boolean;
 	required?: boolean;
 	readonly?: boolean;
+	small?: boolean;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
 	placeholder: "Enter a value",
 	type: "text",
 	strongPassword: true,
+	small: false
 });
 
 const emit = defineEmits<{
@@ -74,6 +76,7 @@ const computedClasses = computed(() => [
 	"my-input",
 	{
 		"my-input--has-error": !!props.error,
+		"my-input--small": !!props.small
 	}
 ]);
 const internalValue = computed(() => props.value ?? "");

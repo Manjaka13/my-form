@@ -29,10 +29,12 @@ interface IProps {
 	width?: string | number;
 	title?: string;
 	layout?: InputLayoutType;
+	small?: boolean;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
 	noDot: false,
+	small: false
 });
 
 const isColumn = computed(() => {
@@ -44,6 +46,7 @@ const computedClasses = computed(() => [
 	"my-input-wrapper",
 	{
 		"my-input-wrapper--column": (props.layout === "column" || isColumn.value) && !(props.layout === "inline"),
+		"my-input-wrapper--small": !!props.small,
 	}
 ]);
 const contentStyle = computed(() => {
