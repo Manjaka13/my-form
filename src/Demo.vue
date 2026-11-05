@@ -1,13 +1,14 @@
 <template>
-	<div class="my-demo">
-		<my-input label="Entrer une valeur" type="email" :value="valueText" :error="error" @my-input="handleInput" @my-change="handleChange" @my-focus="handleFocus(true)" @my-blur="handleFocus(false)" @my-error="handleError" required />
-	</div>
+	<my-form>
+		<my-input label="Entrer une valeur" type="email" :value="valueText" :error="error" :breakpoint="500" @my-input="handleInput" @my-change="handleChange" @my-focus="handleFocus(true)" @my-blur="handleFocus(false)" @my-error="handleError" required />
+	</my-form>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 
 const valueText = ref("");
+const valueBool = ref(false);
 const error = ref("");
 
 // function checkError() {
@@ -43,21 +44,15 @@ function handleError(event: CustomEvent) {
 }
 </script>
 
-<style lang="css" scoped>
-.my-demo,
-.my-demo--dark {
+<style lang="css">
+body {
 	font-size: 15px;
 	font-family: system-ui, sans-serif;
 	box-sizing: border-box;
 	padding: 20px;
 	outline: 1px var(--my-color-light-darker) solid;
-	display: flex;
-	align-items: center;
-	gap: 10px;
 	width: 100%;
-}
-
-.my-demo--dark {
-	background: var(--my-color-dark);
+	margin: 0;
+	padding: 0;
 }
 </style>

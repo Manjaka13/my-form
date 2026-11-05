@@ -1,0 +1,6 @@
+.my-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--my-form-gap);
+  padding: var(--my-form-gap);
+}

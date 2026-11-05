@@ -1,8 +1,3 @@
-:host {
-  display: block;
-  width: 100%;
-}
-
 .my-input {
   flex: 1;
   height: 100%;

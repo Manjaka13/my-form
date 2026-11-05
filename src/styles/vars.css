@@ -35,6 +35,9 @@
   /* Height of inputs, buttons, switches... */
   --my-form-height: 42px;
   --my-form-height-small: calc(var(--my-form-height) * 0.5);
+
+  /* Gap between input elements */
+  --my-form-gap: 20px;
   
   /* General border radius */
   --my-border-radius: 5px;
@@ -44,4 +47,7 @@
 
   /* Controls how far down from the input the error will be displayed */
   --my-error-margin: 3px;
+
+  /* Errors font size */
+  --my-error-font-size: 11px;
 }

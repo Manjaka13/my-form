@@ -1,5 +1,5 @@
 <template>
-	<my-input-wrapper :name="internalName" :myClass="myClass" :error="error" :icon="icon" :label="label">
+	<my-input-wrapper :name="internalName" :myClass="myClass" :error="error" :icon="icon" :label="label" :no-dot="noDot" :title="title">
 		<input
 			:id="internalName"
 			:class="computedClass"
@@ -45,12 +45,15 @@ interface IProps {
 	strongPassword?: boolean;
 	required?: boolean;
 	readonly?: boolean;
+	noDot?: boolean;
+	title?: string;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
 	placeholder: "Enter a value",
 	type: "text",
 	strongPassword: true,
+	noDot: false
 });
 
 const computedClass = computed(() => [
