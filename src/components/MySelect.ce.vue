@@ -34,8 +34,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { generateName } from "@/helpers/utils";
-import type { ErrorType, SelectElement } from "@/helpers/types";
-import valid from "@/helpers/validation";
+import type { SelectElement } from "@/helpers/types";
 
 /**
  * Select component

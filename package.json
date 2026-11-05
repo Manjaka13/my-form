@@ -1,23 +1,38 @@
 {
   "name": "my-form",
-  "private": true,
   "version": "0.0.1",
   "type": "module",
+  "main": "./dist/my-form.umd.cjs",
+  "module": "./dist/my-form.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/my-form.es.js",
+      "require": "./dist/my-form.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build"
+    "build": "vue-tsc --noEmit -p tsconfig.app.json && vite build",
+    "prepare": "npm run build"
   },
-  "dependencies": {
+  "peerDependencies": {
     "vue": "^3.5.44"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.60.1",
     "@types/node": "^24.19.2",
     "@vitejs/plugin-vue": "^6.0.10",
     "@vue/tsconfig": "^0.9.1",
     "typescript": "~6.0.3",
+    "unplugin-dts": "^1.1.2",
     "vite": "^8.3.5",
     "vue-tsc": "^3.3.13"
   },
   "license": "MIT",
-  "author": "Harijaona<manjaka.rajaonson@gmail.com>"
+  "author": "Harijaona <manjaka.rajaonson@gmail.com>"
 }

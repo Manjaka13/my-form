@@ -7,3 +7,6 @@ import App from "@/Demo.vue";
  */
 
 createApp(App).mount("body");
+
+
+export * from "@/helpers/types";
