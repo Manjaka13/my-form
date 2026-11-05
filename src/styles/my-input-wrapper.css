@@ -35,6 +35,10 @@
 	border-top: 3px var(--my-color-light-darker) dotted;
 }
 
+.my-input-wrapper--small .my-input-wrapper__dots {
+	border-top: 2px var(--my-color-light-darker) dotted;
+}
+
 .my-input-wrapper:hover .my-input-wrapper__dots {
 	opacity: 1;
 }
