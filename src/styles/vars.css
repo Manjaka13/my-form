@@ -36,7 +36,7 @@
   --my-form-height: 42px;
   --my-form-height-small: calc(var(--my-form-height) * 0.5);
 
-  --my-font-size-small: 0.8em;
+  --my-font-size-small: 0.9em;
 
   /* Gap between input elements */
   --my-form-gap: 20px;

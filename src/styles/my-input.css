@@ -20,6 +20,12 @@
   font-family: inherit;
   box-sizing: border-box;
   font-weight: inherit;
+  color: var(--my-color-dark-lighter);
+}
+
+.my-input--disabled .my-input__field {
+	background: color-mix(in srgb, var(--my-color-light) 95%, black);
+  color: var(--my-color-light-darker);
 }
 
 .my-input--small .my-input__field {

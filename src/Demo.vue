@@ -4,7 +4,6 @@
 			<my-input
 				name="input1"
 				label="Entrer une valeur"
-				type="password"
 				:error="error"
 				:value="valueText"
 				@my-input="handleInput"

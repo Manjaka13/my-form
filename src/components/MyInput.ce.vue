@@ -9,13 +9,14 @@
 			:value="internalValue"
 			:required="required"
 			:readonly="readonly"
+			:disabled="disabled"
 			@input="handleInput"
 			@change="handleChange"
 			@focus="(e) => handleFocus(e, true)"
 			@blur="(e) => handleFocus(e, false)"
 		/>
 
-		<template v-if="props.type === 'password'">
+		<template v-if="props.type === 'password' && !disabled">
 			<!-- Icon show password -->
 			<svg
 				v-if="showPassword"
@@ -102,6 +103,7 @@ interface IProps {
 	required?: boolean;
 	readonly?: boolean;
 	small?: boolean;
+	disabled?: boolean;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
@@ -109,6 +111,7 @@ const props = withDefaults(defineProps<IProps>(), {
 	type: "text",
 	strongPassword: true,
 	small: false,
+	disabled: false
 });
 
 const emit = defineEmits<{
@@ -123,6 +126,7 @@ const computedClasses = computed(() => [
 	"my-input",
 	{
 		"my-input--has-error": !!props.error,
+		"my-input--disabled": !!props.disabled,
 		"my-input--small": !!props.small,
 	},
 ]);
