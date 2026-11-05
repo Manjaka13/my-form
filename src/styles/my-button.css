@@ -17,6 +17,11 @@
   }
 }
 
+.my-button--small {
+  height: var(--my-form-height-small);
+  padding: 0 10px;
+}
+
 .my-button--disabled {
   color: var(--my-color-light-darker);
   pointer-events: none;

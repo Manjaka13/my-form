@@ -19,6 +19,8 @@
 		<my-input-wrapper name="input2" label="Activer le compte" breakpoint="500" title="Si vous souhaitez activer le compte directement" layout="inline">
 			<my-switch name="input2" :value="valueBool" @my-change="handleBoolChange" />
 		</my-input-wrapper>
+
+		<my-button small>Click me</my-button>
 	</my-form>
 </template>
 

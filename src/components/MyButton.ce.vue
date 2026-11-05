@@ -19,12 +19,14 @@ interface IProps {
 	color?: ColorType;
 	disabled?: boolean;
 	type?: ButtonType;
+	small?: boolean;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
 	color: "theme",
 	disabled: false,
 	type: BUTTON_TYPES[0],
+	small: false
 });
 
 const emit = defineEmits<{
@@ -36,6 +38,7 @@ const computedClasses = computed(() => [
 	`my-button--${props.color}`,
 	{
 		"my-button--disabled": !!props.disabled,
+		"my-button--small": !!props.small,
 	}
 ]);
 
