@@ -1,0 +1,1 @@
+[ ] Remove myClass prop from all components and cleanup

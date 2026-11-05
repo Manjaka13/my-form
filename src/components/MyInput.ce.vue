@@ -1,8 +1,8 @@
 <template>
-	<my-input-wrapper :name="internalName" :myClass="myClass" :error="error" :icon="icon" :label="label" :no-dot="noDot" :title="title">
+	<div :class="computedClasses">
 		<input
+			class="my-input__field"
 			:id="internalName"
-			:class="computedClass"
 			:placeholder="placeholder"
 			:value="internalValue"
 			:required="required"
@@ -12,7 +12,27 @@
 			@focus="(e) => handleFocus(e, true)"
 			@blur="(e) => handleFocus(e, false)"
 		/>
-	</my-input-wrapper>
+		<p v-if="error" class="my-input__error">
+			<svg
+				class="warning"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				width="1em"
+				height="1em"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<path d="M12 3 22 20H2Z" />
+				<path d="M12 9v5" />
+				<circle cx="12" cy="17" r="0.5" fill="currentColor" />
+			</svg>
+			{{ error }}
+		</p>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -25,6 +45,24 @@ import valid from "@/helpers/validation";
  * Input component
  */
 
+interface IProps {
+	name?: string;
+	error?: string;
+	myClass?: string;
+	placeholder?: string;
+	value?: string;
+	type?: InputType;
+	strongPassword?: boolean;
+	required?: boolean;
+	readonly?: boolean;
+}
+
+const props = withDefaults(defineProps<IProps>(), {
+	placeholder: "Enter a value",
+	type: "text",
+	strongPassword: true,
+});
+
 const emit = defineEmits<{
 	"my-input": [name: string, value: string | undefined];
 	"my-change": [name: string | undefined, value: string | undefined];
@@ -33,34 +71,12 @@ const emit = defineEmits<{
 	"my-error": [name: string, error: ErrorType | boolean];
 }>();
 
-interface IProps {
-	label?: string;
-	name?: string;
-	error?: string;
-	icon?: string;
-	myClass?: string;
-	placeholder?: string;
-	value?: string;
-	type?: InputType;
-	strongPassword?: boolean;
-	required?: boolean;
-	readonly?: boolean;
-	noDot?: boolean;
-	title?: string;
-}
-
-const props = withDefaults(defineProps<IProps>(), {
-	placeholder: "Enter a value",
-	type: "text",
-	strongPassword: true,
-	noDot: false
-});
-
-const computedClass = computed(() => [
+const computedClasses = computed(() => [
 	"my-input",
 	{
-		"my-input--with-icon": !!props.icon
+		"my-input--has-error": !!props.error,
 	},
+	props.myClass,
 ]);
 const internalValue = computed(() => props.value ?? "");
 
@@ -82,34 +98,24 @@ function handleFocus(e: Event, focused: boolean) {
 		emit("my-blur", internalName.value);
 		const target = e.target as HTMLInputElement;
 		const error = checkInternalError(target.value);
-		if (error)
-			emit("my-error", internalName.value, error);
+		if (error) emit("my-error", internalName.value, error);
 	}
 }
 
 function checkInternalError(value: string | number | undefined | null): ErrorType | undefined {
 	if (props.required) {
 		const test = valid["required"](value);
-		if (typeof test !== "boolean")
-			return test;
+		if (typeof test !== "boolean") return test;
 	}
 
-	if (props.type === "email") {
-		console.log(value)
-		return valid["email"](value);
-	}
+	if (props.type === "email") return valid["email"](value);
 	else if (props.type === "password") {
 		if (props.strongPassword) return valid["strongPassword"](value);
 		else return valid["password"](value);
-	}
-	else if (props.type === "number")
-		return valid["number"](value);
-	else if (props.type === "tel")
-		return valid["phone"](value);
-	else if (props.type === "url")
-		return valid["url"](value);
-	else if (props.type === "date")
-		return valid["date"](value);
+	} else if (props.type === "number") return valid["number"](value);
+	else if (props.type === "tel") return valid["phone"](value);
+	else if (props.type === "url") return valid["url"](value);
+	else if (props.type === "date") return valid["date"](value);
 }
 </script>
 

@@ -18,9 +18,6 @@
 }
 
 .my-input-wrapper__label {
-	display: flex;
-	gap: 5px;
-	align-items: center;
 	font-size: inherit;
 	font-family: inherit;
 	font-weight: 600;
@@ -28,19 +25,10 @@
 	width: fit-content;
 }
 
-.my-input-wrapper__label .warning {
-	color: var(--my-color-danger);
-  font-size: inherit;
-}
-
 .my-input-wrapper__dots {
 	opacity: 0;
 	flex: 1;
 	border-top: 3px var(--my-color-light-darker) dotted;
-}
-
-.my-input-wrapper--has-error .my-input-wrapper__dots {
-	border-top: 3px var(--my-color-danger-lighter) dotted;
 }
 
 .my-input-wrapper:hover .my-input-wrapper__dots {
@@ -50,41 +38,10 @@
 .my-input-wrapper__content {
 	display: flex;
 	align-items: center;
-	height: var(--my-form-height);
-	border-radius: var(--my-border-radius);
-	border: 1px var(--my-color-light-darker) solid;
-	background: color-mix(in srgb, var(--my-color-light) 93%, black);
 	box-sizing: border-box;
 	position: relative;
 }
 
 .my-input-wrapper--column .my-input-wrapper__content {
 	width: 100%;
-}
-
-.my-input-wrapper--has-error .my-input-wrapper__content {
-	border: 1px var(--my-color-danger) solid;
-	box-shadow: 0 0 5px var(--my-color-danger-lighter);
-}
-
-.my-input-wrapper__content .icon-box {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: var(--my-form-height);
-	height: 100%;
-	color: inherit;
-	font-size: inherit;
-	border-radius: var(--my-border-radius) 0 0 var(--my-border-radius);
-	border-right: 1px var(--my-color-light-darker) solid;
-	user-select: none;
-}
-
-.my-input-wrapper__content .error-box {
-	position: absolute;
-	top: calc(100% + var(--my-error-margin));
-	left: 0;
-	color: var(--my-color-danger);
-	font-size: var(--my-error-font-size);
-	margin: 0;
 }

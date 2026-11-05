@@ -1,6 +1,24 @@
 <template>
 	<my-form>
-		<my-input label="Entrer une valeur" type="email" :value="valueText" :error="error" :breakpoint="500" @my-input="handleInput" @my-change="handleChange" @my-focus="handleFocus(true)" @my-blur="handleFocus(false)" @my-error="handleError" required />
+		<my-input-wrapper name="input1" label="Remplir le champ" breakpoint="500" title="Entrer une adresse email standard">
+			<my-input
+				name="input1"
+				label="Entrer une valeur"
+				type="email"
+				:error="error"
+				:value="valueText"
+				@my-input="handleInput"
+				@my-change="handleChange"
+				@my-error="handleError"
+				@my-focus="handleFocus(true)"
+				@my-blur="handleFocus(false)"
+				required
+			/>
+		</my-input-wrapper>
+
+		<my-input-wrapper name="input2" label="Activer le compte" breakpoint="500" title="Si vous souhaitez activer le compte directement">
+			<my-switch name="input2" :value="valueBool" @my-change="handleBoolChange" />
+		</my-input-wrapper>
 	</my-form>
 </template>
 
@@ -28,19 +46,19 @@ function handleChange(event: CustomEvent) {
 }
 
 function handleFocus(focused: boolean) {
-	if (focused)
-		error.value = "";
-	// else
-	// 	checkError();
+	if (focused) error.value = "";
 }
 
 function handleError(event: CustomEvent) {
-	const err = event.detail[1]
-	console.log(err);
-	if (err.code === "required")
-		error.value = "Champ obligatoire";
-	else if (err.code === "email")
-		error.value = "Veuillez entrer un email valide";
+	const err = event.detail[1];
+	if (err.code === "required") error.value = "Champ obligatoire";
+	else if (err.code === "email") error.value = "Veuillez entrer un email valide";
+	else error.value = "";
+}
+
+function handleBoolChange(event: CustomEvent) {
+	const newValue = event.detail[1];
+	valueBool.value = newValue;
 }
 </script>
 

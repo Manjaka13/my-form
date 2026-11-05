@@ -1,4 +1,4 @@
-import { BUTTON_TYPES, COLORS } from "@/helpers/const";
+import { BUTTON_TYPES, COLORS, LAYOUTS } from "@/helpers/const";
 import type rules from "@/helpers/rules";
 
 /**
@@ -34,3 +34,5 @@ export type InputType =
 	| "submit"
 	| "reset"
 	| "button";
+
+export type InputLayoutType = (typeof LAYOUTS)[number];

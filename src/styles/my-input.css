@@ -1,17 +1,58 @@
-.my-input {
+:host {
+  display: block;
   flex: 1;
-  height: 100%;
-  border: none;
-  background: color-mix(in srgb, var(--my-color-light) 99%, black);
+  min-width: 0;
+}
+
+.my-input {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.my-input__field {
+  width: 100%;
+  height: var(--my-form-height);
   border-radius: var(--my-border-radius);
   padding: 0 20px;
+  border: 1px var(--my-color-light-darker) solid;
+	background: color-mix(in srgb, var(--my-color-light) 99%, black);
   font-size: inherit;
   font-family: inherit;
   box-sizing: border-box;
   font-weight: inherit;
 }
 
-.my-input--with-icon {
-  border-radius: 0 var(--my-border-radius) var(--my-border-radius) 0;
+.my-input--has-error .my-input__field {
+  border: 1px var(--my-color-danger) solid;
+  box-shadow: 0 0 5px var(--my-color-danger-lighter);
 }
 
+.my-input__error {
+  position: absolute;
+	top: calc(100% + var(--my-error-margin));
+	left: 0;
+	color: var(--my-color-danger);
+	font-size: var(--my-error-font-size);
+	margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.my-input__error {
+  position: absolute;
+	top: calc(100% + var(--my-error-margin));
+	left: 0;
+	color: var(--my-color-danger);
+	font-size: var(--my-error-font-size);
+	margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* This is for adjusting some visual positioning */
+.my-input__error .warning {
+  position: relative;
+  top: -1px;
+}
