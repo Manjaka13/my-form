@@ -52,7 +52,7 @@ const contentStyle = computed(() => {
 	let width: string | number = Number(props.width);
 
 	return {
-		width: (props.layout === "column" || isColumn.value) ? "100%" : Number.isNaN(width) ? "auto" : width + "px"
+		width: props.layout === "inline" ? "auto" : (props.layout === "column" || isColumn.value) ? "100%" : Number.isNaN(width) ? "auto" : width + "px"
 	};
 });
 
