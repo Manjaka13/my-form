@@ -24,7 +24,6 @@ import type { InputLayoutType } from "@/helpers/types";
 interface IProps {
 	label?: string;
 	name?: string;
-	myClass?: string;
 	noDot?: boolean;
 	breakpoint?: string | number;
 	width?: string | number;
@@ -45,8 +44,7 @@ const computedClasses = computed(() => [
 	"my-input-wrapper",
 	{
 		"my-input-wrapper--column": (props.layout === "column" || isColumn.value) && !(props.layout === "inline"),
-	},
-	props.myClass,
+	}
 ]);
 const contentStyle = computed(() => {
 	let width: string | number = Number(props.width);

@@ -16,7 +16,6 @@ import { generateName } from "@/helpers/utils";
 
 interface IProps {
 	name?: string;
-	myClass?: string;
 	color?: ColorType;
 	disabled?: boolean;
 	type?: ButtonType;
@@ -37,8 +36,7 @@ const computedClasses = computed(() => [
 	`my-button--${props.color}`,
 	{
 		"my-button--disabled": !!props.disabled,
-	},
-	props.myClass,
+	}
 ]);
 
 const internalName = ref(generateName("my-button", props.name));

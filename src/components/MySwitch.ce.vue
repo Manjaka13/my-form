@@ -25,7 +25,6 @@ interface IProps {
 	color?: ColorType;
 	disabled?: boolean;
 	value?: boolean;
-	myClass?: string;
   noText?: boolean;
   small?: boolean;
 	name?: string;
@@ -46,7 +45,6 @@ const computedClasses = computed(() => [
 		"my-switch--checked": !!props.value,
     "my-switch--small": !!props.small
 	},
-	props.myClass,
 ]);
 
 const internalName = ref(generateName("my-input", props.name));

@@ -12,7 +12,6 @@ import type { ColorType } from "@/helpers/types";
 
 interface IProps {
 	color?: ColorType;
-  myClass?: string;
   small?: boolean;
 }
 
@@ -24,8 +23,7 @@ const props = withDefaults(defineProps<IProps>(), {
 const computedClasses = computed(() => [
   "my-spinner",
   `my-spinner--${props.color}`,
-  props.small ? "my-spinner--small" : null,
-  props.myClass,
+  props.small ? "my-spinner--small" : null
 ]);
 </script>
 

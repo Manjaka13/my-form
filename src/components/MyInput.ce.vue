@@ -48,7 +48,6 @@ import valid from "@/helpers/validation";
 interface IProps {
 	name?: string;
 	error?: string;
-	myClass?: string;
 	placeholder?: string;
 	value?: string;
 	type?: InputType;
@@ -75,8 +74,7 @@ const computedClasses = computed(() => [
 	"my-input",
 	{
 		"my-input--has-error": !!props.error,
-	},
-	props.myClass,
+	}
 ]);
 const internalValue = computed(() => props.value ?? "");
 

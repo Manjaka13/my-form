@@ -17,7 +17,6 @@ interface IProps {
 	lines?: number;
 	more?: string;
 	expandable?: boolean;
-	myClass?: string;
 	justify?: boolean;
 }
 
@@ -38,8 +37,7 @@ const computedClasses = computed(() => [
 	"my-clamp",
 	{
 		"my-clamp--justify": props.justify,
-	},
-	props.myClass,
+	}
 ]);
 const contentStyle = computed(() => ({
 	"--my-clamp-lines": props.lines,
